@@ -1,0 +1,41 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(lldb) 启动",
+            // "type": "cppdbg",
+            "type": "cppdbg",
+            "preLaunchTask": "build",
+            "request": "launch",
+            "program": "${workspaceFolder}/target/debug/server",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'changeAccount'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=changeAccount",
+                    "--package=changeAccount"
+                ],
+                "filter": {
+                    "name": "changeAccount",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

@@ -3,7 +3,7 @@ extern crate mio_extras;
 extern crate time;
 
 use server::db::connect;
-use server::ws_server::ws_server;
+// use server::ws_server::ws_server;
 use server::api::api;
 
 
@@ -14,6 +14,6 @@ async fn main() {
 
     // Run the WebSocket
     // ws_server();
-    // connect().unwrap();
+    connect().unwrap();
     api().await;
 }
