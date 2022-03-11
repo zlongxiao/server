@@ -14,7 +14,7 @@ type WebResult<T> = std::result::Result<T, Rejection>;
 pub struct AddRequest {
     pub name: String,
     pub ip: String,
-    pub state: String,
+    pub state: u32,
 }
 
 #[derive(Deserialize, Debug)]
@@ -82,7 +82,7 @@ async fn add_list(body: AddRequest) -> WebResult<impl Reply> {
     let mut miner = MinerList::new();
     miner.name = body.name;
     miner.ip = body.ip;
-    miner.state = body.state.parse::<u32>().unwrap();
+    miner.state = body.state;
     let system_time = SystemTime::now();
     let datetime: DateTime<Local> = system_time.into();
     miner.update_time = datetime.format("%Y-%m-%d %T").to_string();
